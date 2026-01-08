@@ -65,7 +65,7 @@ java -jar gateway/target/gateway-1.0-SNAPSHOT.jar
 
 ---
 
-## �� Аутентификация
+##  Аутентификация
 
 ### 1. Получить токен
 
@@ -112,7 +112,7 @@ curl -X POST http://localhost:8080/api/bookings/user/register \
 
 ---
 
-## 📍 API эндпойнты
+## 📍API эндпойнты
 
 ### Аутентификация
 ```
@@ -161,29 +161,6 @@ DELETE /api/bookings/users/{id}
 
 ---
 
-## 🧪 Тестирование
-
-### Полное тестирование
-
-```bash
-./full_api_test.sh
-```
-
-### Тестирование Postman коллекции
-
-```bash
-./postman_collection_test.sh
-./test_direct_api.sh
-```
-
-### Unit тесты
-
-```bash
-mvn test
-```
-
----
-
 ## 🐳 Docker
 
 ### Структура
@@ -216,15 +193,6 @@ docker-compose logs -f [service-name]
 docker-compose down
 ```
 
-### Docker образы
-
-| Образ | Размер | Базовый образ |
-|-------|--------|---------------|
-| miphi_exam-eureka | 469 MB | eclipse-temurin:17-jdk-jammy |
-| miphi_exam-gateway | 463 MB | eclipse-temurin:17-jdk-jammy |
-| miphi_exam-hotel | 499 MB | eclipse-temurin:17-jdk-jammy |
-| miphi_exam-booking | 506 MB | eclipse-temurin:17-jdk-jammy |
-
 ---
 
 ## 🗄️ Базы данных
@@ -253,7 +221,7 @@ docker-compose down
 
 ---
 
-## �� Алгоритм бронирования
+## Алгоритм бронирования
 
 1. Создание: запись со статусом `PENDING`
 2. Фиксация: вызов `/confirm-availability` с retry логикой
@@ -307,7 +275,7 @@ curl -X POST http://localhost:8080/api/bookings/user/auth \
 
 ---
 
-## �� Дополнительно
+## Дополнительно
 
 ### Postman коллекция
 
