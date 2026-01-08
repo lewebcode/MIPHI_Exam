@@ -43,41 +43,6 @@ Spring Boot 3.4.x + Spring Cloud (2024.0.1) монорепозиторий с ч
 
 ---
 
-##  Аутентификация
-
-### 1. Получить токен
-
-```bash
-curl -X POST http://localhost:8080/api/bookings/user/auth \
-  -H "Content-Type: application/json" \
-  -d '{"username":"admin","password":"admin"}'
-```
-
-Ответ:
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "username": "admin"
-}
-```
-
-### 2. Использовать токен для запросов
-
-```bash
-curl -X GET http://localhost:8080/api/hotels \
-  -H "Authorization: Bearer {token}"
-```
-
-### 3. Регистрация нового пользователя
-
-```bash
-curl -X POST http://localhost:8080/api/bookings/user/register \
-  -H "Content-Type: application/json" \
-  -d '{"username":"newuser","password":"password123"}'
-```
-
----
-
 ## 📍API эндпойнты
 
 ### Аутентификация
