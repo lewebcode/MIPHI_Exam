@@ -145,11 +145,6 @@ docker-compose down
 - booking_confirmations (id, booking_id, confirmation_token, confirmed)
 ```
 
-### H2 консоль
-
-- **Hotel**: http://localhost:8081/h2-console (jdbc:h2:mem:hoteldb, user: sa)
-- **Booking**: http://localhost:8082/h2-console (jdbc:h2:mem:bookingdb, user: sa)
-
 ---
 
 ## Алгоритм бронирования
@@ -182,15 +177,6 @@ docker-compose down
 
 ---
 
-## 🐛 Решение проблем
-
-### Сервис не регистрируется в Eureka
-
-```bash
-docker-compose logs [service-name] | grep eureka
-curl http://localhost:8761/eureka/apps
-```
-
 ### HTTP 401 при доступе к API
 
 ```bash
@@ -199,56 +185,6 @@ curl -X POST http://localhost:8080/api/bookings/user/auth \
   -H "Content-Type: application/json" \
   -d '{"username":"admin","password":"admin"}'
 ```
-
-### H2 консоль возвращает 404
-
-Это нормально. Данные загружаются при запуске через schema.sql и data.sql.
-
----
-
-## Дополнительно
-
-### Postman коллекция
-
-Используйте `MIPHI_Exam_API_Collection.json` с 20+ готовыми запросами.
-
-### Интерактивное управление
-
-```bash
-./docker-manage.sh start
-./docker-manage.sh stop
-./docker-manage.sh restart
-./docker-manage.sh logs
-./docker-manage.sh urls
-```
-
-### Сценарии использования
-
-**Сценарий 1: Создать отель и забронировать номер**
-1. Авторизоваться: admin/admin
-2. POST /api/hotels (создать отель)
-3. POST /api/rooms (добавить номер)
-4. POST /api/bookings (создать бронирование)
-5. PUT /api/bookings/{id}/confirm (подтвердить)
-
-**Сценарий 2: Пользователь бронирует номер**
-1. POST /api/bookings/user/register (регистрация)
-2. POST /api/bookings/user/auth (получить токен)
-3. GET /api/rooms (просмотреть номера)
-4. POST /api/bookings (забронировать)
-5. DELETE /api/bookings/{id} (отменить)
-
----
-
-## ✅ Проверка готовности
-
-Система готова если:
-
-- ✅ `docker-compose ps` показывает все 4 сервиса как `Up`
-- ✅ Eureka доступен: http://localhost:8761
-- ✅ API Gateway отвечает: http://localhost:8080
-- ✅ `./full_api_test.sh` проходит все тесты
-- ✅ Postman коллекция работает
 
 ---
 
