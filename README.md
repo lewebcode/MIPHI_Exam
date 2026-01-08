@@ -9,28 +9,6 @@ Spring Boot 3.4.x + Spring Cloud (2024.0.1) монорепозиторий с ч
 
 ---
 
-## 🚀 Быстрый старт
-
-### Вариант 1: С использованием Docker Compose
-
-```bash
-cd /Users/levnikonenko/IdeaProjects/MIPHI_Exam
-docker-compose up -d
-docker-compose ps
-```
-
-### Вариант 2: Локальный запуск (без Docker)
-
-```bash
-mvn -q -DskipTests package
-java -jar eureka-server/target/eureka-server-1.0-SNAPSHOT.jar &
-java -jar hotel-service/target/hotel-service-1.0-SNAPSHOT.jar &
-java -jar booking-service/target/booking-service-1.0-SNAPSHOT.jar &
-java -jar gateway/target/gateway-1.0-SNAPSHOT.jar
-```
-
----
-
 ## 🏛️ Архитектура
 
 ### Микросервисная система
@@ -97,18 +75,6 @@ curl -X POST http://localhost:8080/api/bookings/user/register \
   -H "Content-Type: application/json" \
   -d '{"username":"newuser","password":"password123"}'
 ```
-
----
-
-## 🗄️ Предзаполненные данные
-
-### Учетные записи (Booking Service)
-- **admin** / admin (роль: ADMIN)
-- **user** / admin (роль: USER)
-
-### Тестовые данные (Hotel Service)
-- **1 отель**: "Grand Hotel"
-- **3 номера**: 101, 102, 103 (все свободны)
 
 ---
 
